@@ -6,6 +6,7 @@ import { auth } from '../utils/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BANNER_IMAGE, DEFAULT_USER_AVATAR } from '../utils/constants';
 const Login = () => {
 
     const [isSignInForm, setIsSignInForm] = useState(true)
@@ -59,7 +60,7 @@ const Login = () => {
                 const user = userCredential.user;
 
                 updateProfile(auth.currentUser, {
-                    displayName: name.current?.value, photoURL: "https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_640.png"
+                    displayName: name.current?.value, photoURL: DEFAULT_USER_AVATAR
                 }).then(() => {
                     // Profile updated!
                     const { uid, email, displayName, photoURL } = auth?.currentUser;
@@ -86,16 +87,16 @@ const Login = () => {
         <div>
             <Header />
             <div className='absolute'>
-                <img src='https://assets.nflxext.com/ffe/siteui/vlv3/335ddde7-3955-499c-b4cc-ca2eb7e1ae71/a7d20bc1-831c-4f9d-8153-11bdf7a08d23/IN-en-20240624-POP_SIGNUP_TWO_WEEKS-perspective_WEB_13cda806-d858-493e-b4aa-f2792ff965dc_medium.jpg' alt='Logo Not Loaded' />
+                <img src={BANNER_IMAGE} alt='Banner Not Loaded' />
             </div>
 
             <form className='absolute w-3/6 p-12 bg-black  my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80' onSubmit={(e) => e.preventDefault()}>
                 <h1 className='font-bold text-3xl py-4  '>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
                 {
-                    isSignInForm ? null : <input ref={name} type="text" placeholder='Full Name' className='p-3 my-4 w-full bg-gray-700' />
+                    isSignInForm ? null : <input ref={name} type="text" placeholder='Full Name' className='p-3 my-4 w-full bg-gray-700 border border-solid bg-transparent' />
                 }
-                <input ref={email} type="text" placeholder='Email Id' className='p-3 my-4 w-full bg-gray-700' />
-                <input ref={password} type="password" placeholder='Password' className='p-3 my-4 w-full bg-gray-700' />
+                <input ref={email} type="text" placeholder='Email Id' className='p-3 my-4 w-full bg-gray-700 border border-solid bg-transparent' />
+                <input ref={password} type="password" placeholder='Password' className='p-3 my-4 w-full bg-gray-700 border border-solid bg-transparent' />
 
                 <p className='text-red-500 font-bold text-lg p-2'>{errorMessage}</p>
                 {
