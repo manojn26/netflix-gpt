@@ -13,7 +13,7 @@ export const useNowPlayingMovies = () => {
       TMDB_API_OPTIONS
     );
     const jsonApiData = await apiData.json();
-    console.log(jsonApiData);
+    // console.log(jsonApiData);
     dispatch(addNowPlayingMovies(jsonApiData?.results));
   };
 
