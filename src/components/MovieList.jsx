@@ -11,8 +11,9 @@ const MovieList = ({ title, movies }) => {
                     {
                         !movies ? null : movies.map(movie => (
 
-                            <MovieCard key={movie?.id} posterPath={movie.poster_path} />
+                            movie?.poster_path !== null ? <MovieCard key={movie?.id} posterPath={movie.poster_path} /> : null
                         ))
+
                     }
                 </div>
             </div>
