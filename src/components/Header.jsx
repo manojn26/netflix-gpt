@@ -57,15 +57,19 @@ const Header = () => {
     }, [])
 
     return (
-        <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between'>
-            <img className='w-44 ' src={LOGO} alt='Logo Not Loaded' />
+        <div className='absolute w-screen py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between '>
+            <img className='w-44 mx-auto md:mx-0' src={LOGO} alt='Logo Not Loaded' />
 
             {
                 user && (
-                    <div className='flex p-2'>
-                        <button className='py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg' onClick={handleGptSearchClick}>{showGptSearch ? "Home Page" : "Gpt Search"}</button>
-                        <img className='w-12 h-12' alt='Not Loaded User Icon' src={user?.photoURL} />
-                        <button onClick={signOutHandler} className='font-bold text-white ml-5'>Sign Out</button>
+                    <div className='flex justify-between md:flex p-2'>
+                        <button className='py-2 px-4 mx-4 my-2 border border-gray-200 bg-black cursor-pointer font-bold text-white rounded-lg' onClick={handleGptSearchClick}>{showGptSearch ? "Home Page" : "AI Search"}</button>
+
+                        <div className='flex  md:flex'>
+                            <img className='hidden md:block w-12 h-12' alt='Not Loaded User Icon' src={user?.photoURL} />
+                            <button onClick={signOutHandler} className='font-bold text-white mr-20'>Sign Out</button>
+                        </div>
+
                     </div>
                 )
             }

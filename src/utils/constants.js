@@ -19,4 +19,4 @@ export const TMDB_API_OPTIONS = {
 export const TMDB_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
 export const GPT_SEARCH_BACKGROUND_IMAGE =
-  "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  "https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg";

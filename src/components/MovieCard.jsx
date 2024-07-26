@@ -1,11 +1,14 @@
 import React from 'react'
 import { TMDB_IMAGE_CDN_URL } from "../utils/constants"
+import { Link } from 'react-router-dom'
 
-const MovieCard = ({ posterPath }) => {
+const MovieCard = ({ posterPath, id }) => {
     return (
-        <div className='w-48 pr-4'>
-            <img src={TMDB_IMAGE_CDN_URL + posterPath} alt="Movie Not Loaded" />
-        </div>
+        <Link to={`/video/${id}`}>
+            <div className='w-36 md:w-48 pr-4 cursor-pointer'>
+                <img src={TMDB_IMAGE_CDN_URL + posterPath} alt="Movie Not Loaded" />
+            </div>
+        </Link>
     )
 }
 
